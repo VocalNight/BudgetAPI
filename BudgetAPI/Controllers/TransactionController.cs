@@ -1,19 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using BudgetAPI.Models;
 
 namespace BudgetAPI.Controllers
 {
-    public class TransactionModelsController : Controller
+    public class TransactionController : Controller
     {
         private readonly BudgetContext _context;
 
-        public TransactionModelsController(BudgetContext context)
+        public TransactionController(BudgetContext context)
         {
             _context = context;
         }

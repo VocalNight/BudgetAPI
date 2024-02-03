@@ -9,11 +9,11 @@ using BudgetAPI.Models;
 
 namespace BudgetAPI.Controllers
 {
-    public class CategoryModelsController : Controller
+    public class CategoryController : Controller
     {
         private readonly BudgetContext _context;
 
-        public CategoryModelsController(BudgetContext context)
+        public CategoryController(BudgetContext context)
         {
             _context = context;
         }
