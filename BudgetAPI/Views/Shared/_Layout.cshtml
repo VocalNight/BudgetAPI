@@ -3,33 +3,31 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - BudgetAPI</title>
-    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <title>@ViewData["Title"] - Budget</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/BudgetAPI.styles.css" asp-append-version="true" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+        <nav class="navbar navbar-expand-lg flex-lg-nowrap flex-wrap">
             <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">BudgetAPI</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Category" asp-action="Index">Category</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Transaction" asp-action="Index">Transaction</a>
-                        </li>
-                    </ul>
-                </div>
+                <a class="navbar-brand abs fs-3 fw-bold" asp-controller="Home" asp-action="Index"><i class="bi bi-coin"></i> Budget Application</a>
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item active pe-4">
+                        <div class="btn-group">
+                            <button type="button" id="btn-confirm" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#AddCategoryModal">New Category</button>
+                            <button type="button" id="btn-confirm" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#ListCategoriesModal">List Categories</button>
+                            <button type="button" id="btn-confirm" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#CreateTransactionModal">New Transaction</button>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <form class="d-flex w-100" role="search">
+                            <input type="text" class="form-control" placeholder="Search for Transaction" aria-label="Search" id="SearchField" />
+                            <button class="btn btn-outline-success" type="submit">Search</button>
+                        </form>
+                    </li>
+                </ul>
             </div>
         </nav>
     </header>
@@ -37,15 +35,14 @@
         <main role="main" class="pb-3">
             @RenderBody()
         </main>
+        <footer id="footer" class="border-top footer text-muted">
+            <div class="container">
+                &copy; 2023 - Budget Application
+            </div>
+        </footer>
     </div>
-
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2024 - BudgetAPI - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-        </div>
-    </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/lib/bootstrap/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
     @await RenderSectionAsync("Scripts", required: false)
 </body>
